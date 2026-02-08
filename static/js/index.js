@@ -40,6 +40,14 @@ $(document).ready(function() {
 
 		// Initialize all div with carousel class
     var carousels = bulmaCarousel.attach('.carousel', options);
+    bulmaCarousel.attach('.sample-carousel', {
+      slidesToScroll: 1,
+      slidesToShow: 1,
+      loop: true,
+      infinite: true,
+      autoplay: false,
+      autoplaySpeed: 3000,
+    });
 
     // Loop on each carousel initialized
     for(var i = 0; i < carousels.length; i++) {
