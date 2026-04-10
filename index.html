@@ -26,7 +26,10 @@
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
 </head>
-<body>
+<body class="loading">
+  <div id="page-loader" aria-hidden="true">
+    <div class="loader-spinner"></div>
+  </div>
 
 <section class="hero hero-landing">
   <div class="hero-body">
@@ -34,8 +37,11 @@
       <div class="columns is-centered">
         <div class="column has-text-centered">
           <h1 class="title is-1 publication-title">
-            <img src="./static/images/lowell.jpeg" alt="Logo" class="publication-logo">
-            The Perceptual Observatory
+            <span class="title-word">The Perceptual</span>
+            <span class="title-logo-word">
+              <img src="./static/images/lowell.jpeg" alt="O logo" class="publication-logo">
+              <span>bservatory</span>
+            </span>
           </h1>
           <p class="subtitle is-4 hero-subtitle">
             Characterizing robustness and grounding in multimodal large language models (MLLMs)
@@ -70,7 +76,7 @@
           <div class="wacv-line">WACV 2026</div>
 
           <div class="hero-cta">
-            <a href="./static/images/Perceptual_Observatory-Camera_Ready-WACV.pdf"
+            <a href="https://openaccess.thecvf.com/content/WACV2026/html/Anvekar_The_Perceptual_Observatory_Characterizing_Robustness_and_Grounding_in_MLLMs_WACV_2026_paper.html"
                class="button is-rounded is-dark">
               <span class="icon"><i class="fas fa-file-pdf"></i></span>
               <span>Paper</span>
@@ -84,6 +90,25 @@
                class="button is-rounded is-light">
               <span class="icon"><i class="fab fa-github"></i></span>
               <span>Code</span>
+            </a>
+            <a href="https://youtu.be/F2GSfFAIUts"
+               class="button is-rounded is-light">
+              <span class="icon"><i class="fas fa-video"></i></span>
+              <span>Video</span>
+            </a>
+            <a href="https://x.com/anvekar_tejas/status/2029324383966380376?s=20"
+               class="button is-rounded is-light">
+              <span>X Thread</span>
+            </a>
+            <a href="./static/pdfs/poster.pdf"
+               class="button is-rounded is-light">
+              <span class="icon"><i class="fas fa-file-pdf"></i></span>
+              <span>Poster</span>
+            </a>
+            <a href="./static/pdfs/slides.pdf"
+               class="button is-rounded is-light">
+              <span class="icon"><i class="fas fa-file-pdf"></i></span>
+              <span>Slides</span>
             </a>
             <!-- <a href=""
                class="button is-rounded is-light">
@@ -137,6 +162,12 @@
             preserve perceptual grounding and relational structure under perturbations, providing a principled
             foundation for analyzing strengths and weaknesses of current and future models.
           </p>
+          <div class="abstract-media">
+            <video controls muted playsinline preload="metadata">
+              <source src="./static/videos/gif.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
         </div>
       </div>
     </div>
@@ -211,10 +242,6 @@
         <figure class="overview-figure">
           <img src="./static/images/po-framework.png"
                alt="Framework overview of The Perceptual Observatory tasks and properties">
-          <figcaption class="is-size-6 has-text-grey">
-            Framework overview of tasks, properties, and insights used to probe perceptual robustness
-            and grounding.
-          </figcaption>
         </figure>
       </div>
     </div>
@@ -282,7 +309,6 @@
         </div>
         <figure class="task-panel-figure">
           <img src="./static/images/figure2.png" alt="Image Matching task figure">
-          <figcaption class="is-size-6 has-text-grey">Figure 2: Image Matching task.</figcaption>
         </figure>
       </div>
       <div class="task-panel">
@@ -296,7 +322,6 @@
         </div>
         <figure class="task-panel-figure">
           <img src="./static/images/figure3.png" alt="Grid Pointing Game task figure">
-          <figcaption class="is-size-6 has-text-grey">Figure 3: Grid Pointing Game.</figcaption>
         </figure>
       </div>
       <div class="task-panel">
@@ -309,7 +334,6 @@
         </div>
         <figure class="task-panel-figure">
           <img src="./static/images/figure4.png" alt="Attribute Localization task figure">
-          <figcaption class="is-size-6 has-text-grey">Figure 4: Attribute Localization.</figcaption>
         </figure>
       </div>
     </div>
@@ -433,27 +457,34 @@
     <div class="results-stack">
       <figure class="figure-card full-figure">
         <img src="./static/images/figure5.png" alt="Figure 5: Robustness vs gap for Task 3(a)">
-        <figcaption class="is-size-6 has-text-grey">
-          Figure 5: Multidimensional insights for Task 3(a) across attributes, ID vs OOD robustness, and gender gap.
-        </figcaption>
+        <p class="result-note">
+          This figure shows that attribute localization is strongest on clean and ID settings, but drops more sharply on OOD stylized variants.
+          Gender-wise gaps remain limited for some models, yet robustness deterioration is still substantial under harder perturbations.
+        </p>
       </figure>
-      <figure class="figure-card full-figure">
+      <div class="result-break" aria-hidden="true"></div>
+      <figure class="figure-card full-figure table-figure">
         <img src="./static/images/po-table-1.png" alt="Table 1: Robustness of MLLMs for ID vs OOD across tasks">
-        <figcaption class="is-size-6 has-text-grey">
-          Table 1: Robustness of MLLMs for ID vs OOD across tasks and datasets.
-        </figcaption>
+        <p class="result-note">
+          The table highlights a consistent pattern: WORD evaluations are generally stable, while CELEB is significantly more sensitive to OOD shifts.
+          Scaling improves several metrics, but gains are not uniformly transferred to robustness under stylized perturbations.
+        </p>
       </figure>
+      <div class="result-break" aria-hidden="true"></div>
       <figure class="figure-card full-figure">
         <img src="./static/images/figure6.png" alt="Figure 6: Multidimensional insights for Task 2 across datasets">
-        <figcaption class="is-size-6 has-text-grey">
-          Figure 6: Multidimensional insights for Task 2 across datasets (CELEB Tood, WORD Tid/Tood).
-        </figcaption>
+        <p class="result-note">
+          Grid-pointing performance remains comparatively strong for WORD but is less stable for CELEB, especially in OOD conditions.
+          This indicates stronger language/OCR priors than robust face-grounded spatial reasoning under distribution shift.
+        </p>
       </figure>
+      <div class="result-break" aria-hidden="true"></div>
       <figure class="figure-card full-figure">
         <img src="./static/images/figure7.png" alt="Figure 7: Celeb chain length vs. outcome">
-        <figcaption class="is-size-6 has-text-grey">
-          Figure 7: Celeb chain length vs. outcome. Histogram (log-y) of <think> token length for cases where reasoning fixes vs. fails. Top: Org fixes vs. fails. Bottom: T_ood fixes vs. fails.
-        </figcaption>
+        <p class="result-note">
+          Reasoning-mode decoding helps in some clean cases, but longer chains do not reliably recover failures on difficult OOD CELEB samples.
+          This supports the paper’s conclusion that better textual reasoning alone does not guarantee stronger perceptual transfer.
+        </p>
       </figure>
     </div>
   </div>
@@ -462,15 +493,24 @@
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
-    <h2 class="title section-title">BibTeX</h2>
-    <pre><code>@misc{anvekar2025perceptualobservatorycharacterizingrobustness,
-      title={The Perceptual Observatory Characterizing Robustness and Grounding in MLLMs}, 
-      author={Tejas Anvekar and Fenil Bardoliya and Pavan K. Turaga and Chitta Baral and Vivek Gupta},
-      year={2025},
-      eprint={2512.15949},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2512.15949}, 
+    <div class="bibtex-header">
+      <h2 class="title section-title">BibTeX</h2>
+      <div class="bibtex-actions">
+        <!-- <span class="pill pill-outline bibtex-tag">Copy</span> -->
+        <button class="button is-rounded is-light is-small" id="bibtex-copy-button" type="button">
+          <span class="icon is-small"><i class="fas fa-copy"></i></span>
+          <span>Copy BibTeX</span>
+        </button>
+        <span class="bibtex-status" id="bibtex-copy-status" aria-live="polite"></span>
+      </div>
+    </div>
+    <pre><code id="bibtex-code">@InProceedings{Anvekar_2026_WACV,
+      author    = {Anvekar, Tejas and Bardoliya, Fenil and Turaga, Pavan K. and Baral, Chitta and Gupta, Vivek},
+      title     = {The Perceptual Observatory Characterizing Robustness and Grounding in MLLMs},
+      booktitle = {Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)},
+      month     = {March},
+      year      = {2026},
+      pages     = {1653-1663}}
 }
 </code></pre>
   </div>

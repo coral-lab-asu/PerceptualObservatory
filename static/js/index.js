@@ -83,4 +83,81 @@ $(document).ready(function() {
 
     bulmaSlider.attach();
 
+    var revealTargets = document.querySelectorAll('.section, .hero-landing, .footer');
+    revealTargets.forEach(function(target) {
+      target.classList.add('reveal');
+    });
+
+    if ('IntersectionObserver' in window) {
+      var revealObserver = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+
+      revealTargets.forEach(function(target) {
+        revealObserver.observe(target);
+      });
+    } else {
+      revealTargets.forEach(function(target) {
+        target.classList.add('is-visible');
+      });
+    }
+
+    window.addEventListener('load', function() {
+      document.body.classList.add('is-loaded');
+      document.body.classList.remove('loading');
+    });
+
+    var bibtexButton = document.getElementById('bibtex-copy-button');
+    var bibtexCode = document.getElementById('bibtex-code');
+    var bibtexStatus = document.getElementById('bibtex-copy-status');
+    if (bibtexButton && bibtexCode) {
+      var copyLabel = bibtexButton.querySelector('span:last-child');
+      var resetTimer = null;
+      bibtexButton.addEventListener('click', function() {
+        var textToCopy = bibtexCode.innerText.trim();
+        var onSuccess = function() {
+          if (bibtexStatus) {
+            bibtexStatus.textContent = 'Copied!';
+          }
+          if (copyLabel) {
+            copyLabel.textContent = 'Copied';
+          }
+          if (resetTimer) {
+            clearTimeout(resetTimer);
+          }
+          resetTimer = setTimeout(function() {
+            if (bibtexStatus) {
+              bibtexStatus.textContent = '';
+            }
+            if (copyLabel) {
+              copyLabel.textContent = 'Copy BibTeX';
+            }
+          }, 2000);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(textToCopy).then(onSuccess);
+        } else {
+          var selection = window.getSelection();
+          var range = document.createRange();
+          range.selectNodeContents(bibtexCode);
+          selection.removeAllRanges();
+          selection.addRange(range);
+          try {
+            document.execCommand('copy');
+            onSuccess();
+          } catch (err) {
+            if (bibtexStatus) {
+              bibtexStatus.textContent = 'Copy failed';
+            }
+          }
+          selection.removeAllRanges();
+        }
+      });
+    }
+
 })
