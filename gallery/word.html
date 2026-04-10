@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Word Gallery | Perceptual Observatory</title>
+  <link rel="stylesheet" href="../static/css/gallery.css">
+</head>
+<body>
+  <main class="page-wrap">
+    <nav class="top-nav">
+      <a class="btn-link" href="../index.html">Main Page</a>
+      <a class="btn-link" href="./index.html">Gallery Home</a>
+      <a class="btn-link active" href="./word.html">Word Gallery</a>
+      <a class="btn-link" href="./celeb.html">Celeb Gallery</a>
+    </nav>
+
+    <h1>Word Samples: GT vs Aug vs Illusion</h1>
+    <p class="subtitle">
+      Pick a sample index to view GT, Augmentation, and Illusion side-by-side.
+    </p>
+
+    <section class="widget" data-dataset="word-sample" data-prefix="test27" data-max-index="14">
+      <div class="control-row">
+        <div class="control-group">
+          <label for="word-sample-slider">Sample index: <strong data-role="sample-value">0</strong></label>
+          <input id="word-sample-slider" data-role="sample-slider" type="range" min="0" max="14" value="0" step="1">
+        </div>
+      </div>
+
+      <div class="preview-grid">
+        <div class="panel">
+          <div class="panel-label">Ground Truth (GT)</div>
+          <img data-role="gt" alt="Word ground-truth sample">
+        </div>
+
+        <div class="panel">
+          <div class="panel-label">Augmentation</div>
+          <img data-role="aug" alt="Word augmentation sample">
+        </div>
+
+        <div class="panel">
+          <div class="panel-label">Illusion</div>
+          <img data-role="illus" alt="Word illusion sample">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="../static/js/gallery.js"></script>
+</body>
+</html>

@@ -608,9 +608,56 @@ h3 {
   color: var(--muted);
 }
 
+@media (min-width: 1400px) {
+  body {
+    font-size: 19px;
+  }
+
+  .section {
+    padding: 2.8rem 1.8rem;
+  }
+
+  .hero-subtitle {
+    max-width: 880px;
+  }
+}
+
+@media (max-width: 1024px) {
+  body {
+    font-size: 17px;
+  }
+
+  .section {
+    padding: 2rem 1.2rem;
+  }
+
+  .hero-cta {
+    gap: 0.7rem;
+  }
+}
+
 @media (max-width: 768px) {
   .section {
     padding: 1.8rem 1rem;
+  }
+
+  .publication-title {
+    white-space: normal;
+    line-height: 1.1;
+  }
+
+  .title-logo-word {
+    display: inline-flex;
+  }
+
+  .wacv-line {
+    letter-spacing: 0.16em;
+    font-size: 1.25rem;
+  }
+
+  .hero-pills {
+    gap: 0.5rem;
+    margin-bottom: 1.4rem;
   }
 
   .hero-highlight {
@@ -623,9 +670,39 @@ h3 {
 
   .hero-cta {
     flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-cta .button {
+    width: 100%;
+    justify-content: center;
   }
 
   .sample-card img {
     height: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 16px;
+  }
+
+  .publication-title {
+    font-size: clamp(1.7rem, 9vw, 2.4rem);
+  }
+
+  .content {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  .section-title {
+    letter-spacing: 0.04em;
+  }
+
+  .pill {
+    font-size: 0.82rem;
+    padding: 0.35rem 0.7rem;
   }
 }
