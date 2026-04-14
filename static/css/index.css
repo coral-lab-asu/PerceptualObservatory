@@ -642,12 +642,18 @@ h3 {
   }
 
   .publication-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.08em;
     white-space: normal;
     line-height: 1.1;
   }
 
+  .title-word,
   .title-logo-word {
     display: inline-flex;
+    white-space: nowrap;
   }
 
   .wacv-line {
@@ -690,6 +696,7 @@ h3 {
 
   .publication-title {
     font-size: clamp(1.7rem, 9vw, 2.4rem);
+    gap: 0.04em;
   }
 
   .content {
